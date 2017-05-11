@@ -6,15 +6,22 @@ import { Component } from '@angular/core';
   styleUrls:  ['./../css/app.component.css']
 })
 export class AppComponent  {
-  nameBoxHead = 'Target Indicator Demo';
-  moneyNeed = 0;
-  curentValue = 0;
-  targetValue = 15;
-  counterInterval = {};
-  progressTotal = '0%';
-  targetBg = 'linear-gradient(to top, #666666, #8e8e8e)';
+  nameBoxHead: string;
+  moneyNeed: number;
+  curentValue: number;
+  targetValue: number;
+  counterInterval: any;
+  progressTotal: string;
+  targetBg: string;
 
   constructor() {
+    this.nameBoxHead = 'Target Indicator Demo';
+    this.moneyNeed = 0;
+    this.curentValue = 0;
+    this.targetValue = 15;
+    this.counterInterval = {};
+    this.progressTotal = '0%';
+    this.targetBg = 'linear-gradient(to top, #666666, #8e8e8e)';
     this.initValue();
   }
   counter() {
@@ -41,14 +48,14 @@ export class AppComponent  {
   }
 
   ngOnInit() {
-    fetch('http://alex.devel.softservice.org/testapi/')
-    .then(function(response) {
+    window['fetch']('http://alex.devel.softservice.org/testapi/')
+    .then(function(response: any) {
       return response.json();
-    }).then((json) => {
+    }).then((json: any) => {
       this.curentValue = json.balance_usd;
       this.initValue();
       this.counter();
-    }).catch(function(ex) {
+    }).catch(function(ex: any) {
       console.log('parsing failed', ex);
     })
   }
