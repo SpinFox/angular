@@ -1,0 +1,21 @@
+<div class="window-box">
+  <div class="box-head">{{nameBoxHead}}</div>
+  <div class="infoblock">
+    <div class="progress-wrapper">
+      <div class="progress-label">Reached: &nbsp;&nbsp;</div>
+      <div class="progress-money">
+        <div class="progress" [style.width]="progressTotal">
+          <div class="pointer">${{curentValue}}</div>
+        </div>
+      </div>
+      <div class="target-value" [style.background]="targetBg">
+        <div class="target">Target</div>
+        ${{targetValue}}
+      </div>
+    </div>
+    <div class="money-need">
+      <i class="mdi mdi-information"></i>
+      <div>&nbsp;You need ${{moneyNeed}} more to reach your target.</div>
+    </div>
+  </div>
+</div>
